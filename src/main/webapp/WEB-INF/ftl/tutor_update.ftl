@@ -38,10 +38,7 @@
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required/>
     </div>
-    <div>
-        <label for="passwordRepeated">Repeat</label>
-        <input type="password" name="passwordRepeated" id="passwordRepeated" required/>
-    </div>
+
     <div>
         <label for="fname">fname</label>
         <input type="text" name="fname" id="fname" value="${(formU.fname)!}"  />
