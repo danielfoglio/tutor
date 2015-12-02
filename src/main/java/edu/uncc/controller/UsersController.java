@@ -1,6 +1,7 @@
 package edu.uncc.controller;
 
 import edu.uncc.domain.CurrentUser;
+import edu.uncc.domain.Registration;
 import edu.uncc.domain.Role;
 import edu.uncc.domain.Student;
 import edu.uncc.service.user.UserService;
@@ -29,8 +30,8 @@ public class UsersController {
     @RequestMapping("/users")
     public ModelAndView getUsersPage(@ModelAttribute("currentUser") CurrentUser currentUser) {
         LOGGER.debug("Getting users page");
-        Collection<Student> students = userService.getTutorByLogin(currentUser.getUser().getLogin()).getStudents();
-        return new ModelAndView("users_tutor", "students", userService.getTutorByLogin(currentUser.getUser().getLogin()).getStudents());
+        Collection<Registration> students = userService.getTutorByLogin(currentUser.getUser().getLogin()).getRegistrations();
+        return new ModelAndView("users_tutor", "registrations", userService.getTutorByLogin(currentUser.getUser().getLogin()).getRegistrations());
     }
 
     @RequestMapping("/users/{role}")

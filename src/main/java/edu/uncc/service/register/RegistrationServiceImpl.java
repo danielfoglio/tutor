@@ -16,7 +16,12 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Autowired RegistrationRepository registrationRepository;
 
     @Override
-    public Registration registerStudentWithTutor(Student student, Tutor tutor) {
-        return registrationRepository.save(new Registration(student, tutor));
+    public Registration registerStudentWithTutor(Student student, Tutor tutor, String status) {
+        return registrationRepository.save(new Registration(student, tutor,status));
+    }
+
+    @Override
+    public RegistrationRepository getRepo() {
+        return registrationRepository;
     }
 }

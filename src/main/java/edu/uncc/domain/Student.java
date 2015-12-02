@@ -19,18 +19,14 @@ public class Student{
     private String courseId;
 
 
-
-    private Collection<Tutor> tutors;
-    @OneToMany( cascade=CascadeType.ALL)
-    @JoinTable(name="Registration",
-            joinColumns={@JoinColumn(name="SID", referencedColumnName="SID")},
-            inverseJoinColumns={@JoinColumn(name="TID", referencedColumnName="TID")})
-    public Collection<Tutor> getTutors() {
-        return tutors;
+    private Collection<Registration> registrations;
+    @OneToMany( cascade=CascadeType.ALL, mappedBy = "student")
+    public Collection<Registration> getRegistrations() {
+        return registrations;
     }
 
-    public void setTutors(List<Tutor> tutors) {
-        this.tutors = tutors;
+    public void setRegistrations(List<Registration> registrations) {
+        this.registrations = registrations;
     }
 
     public Student(){}

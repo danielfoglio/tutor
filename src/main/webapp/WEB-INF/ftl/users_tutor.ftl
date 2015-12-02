@@ -1,6 +1,6 @@
 
 <#-- @ftlvariable name="currentUser" type="edu.uncc.domain.CurrentUser" -->
-<#-- @ftlvariable name="students" type="java.util.Collection<edu.uncc.domain.Student>" -->
+<#-- @ftlvariable name="registrations" type="java.util.Collection<edu.uncc.domain.Registration>" -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,10 +37,10 @@
     </tr>
     </thead>
     <tbody>
-    <#list students as student>
+    <#list registrations as registration>
     <tr>
-        <td>${student.sid}</a></td>
-        <td>${student.sEmail}</td>
+        <td>${registration.sid}</a></td>
+        <td>${registration.student.sEmail}</td>
     </tr>
     </#list>
     </tbody>

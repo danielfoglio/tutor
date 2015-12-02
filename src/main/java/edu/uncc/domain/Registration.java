@@ -12,6 +12,29 @@ public class Registration {
     private String sid;
     private String status;
 
+    private Tutor tutor;
+    private Student student;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "TID",  insertable = false, updatable = false)
+    public Tutor getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
+    }
+
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "SID", insertable = false, updatable = false)
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
     @Id
     @Column(name = "TID")
     public String getTid() {
@@ -40,10 +63,10 @@ public class Registration {
 
     public Registration() {}
 
-    public Registration(Student student, Tutor tutor) {
+    public Registration(Student student, Tutor tutor, String status) {
         this.sid = student.getSid();
         this.tid = tutor.getTid();
-        this.status = "pending";
+        this.status = status;
     }
 
     public void setStatus(String status) {

@@ -1,10 +1,12 @@
-<#-- @ftlvariable name="tutors" type="java.util.List<edu.uncc.domain.Tutor>" -->
+
 <#-- @ftlvariable name="currentUser" type="edu.uncc.domain.CurrentUser" -->
+<#-- @ftlvariable name="registrations" type="java.util.Collection<edu.uncc.domain.Registration>" -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>List of Tutors</title>
+    <title>List of Users</title>
 </head>
 <body>
 <nav role="navigation">
@@ -20,34 +22,25 @@
     </#if>
         <li><a href="/">Home</a></li>
         <li><a href="/user/create">Create a new user</a></li>
-        <li><a href="/registrations">View my Registrations</a></li>
     </ul>
 </nav>
 
-<h1>List of Tutors</h1>
+
+<h1>List of Registrations</h1>
+
 
 <table>
     <thead>
     <tr>
-        <th>Register</th>
-        <th>Specialization</th>
-        <th>Course Taught</th>
-        <th>Pay Rate</th>
-        <th>Availability</th>
-        <th>Instruction Mode</th>
+        <th>Tutor</th>
+        <th>Status</th>
     </tr>
     </thead>
     <tbody>
-    <#list tutors as tutor>
+    <#list registrations as registration>
     <tr>
-        <td><a href="/register?tid=${tutor.tid}">${tutor.fname} ${tutor.lname}</a></td>
-        <td>${tutor.specialization}</td>
-        <td>${tutor.courseTaught}</td>
-        <td>${tutor.payRate}</td>
-        <td>${(tutor.availability)!}</td>
-        <td>${tutor.instructionMode}</td>
-
-
+        <td>${(registration.tutor.getFname())!} ${(registration.tutor.lname)!}</td>
+        <td>${(registration.status)!}</td>
     </tr>
     </#list>
     </tbody>

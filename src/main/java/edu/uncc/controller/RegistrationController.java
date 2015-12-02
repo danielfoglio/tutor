@@ -25,14 +25,19 @@ public class RegistrationController {
     @Autowired UserService userService;
     @Autowired RegistrationService registrationService;
 
+    @RequestMapping("/registrations")
+    public ModelAndView register(@ModelAttribute("currentUser") CurrentUser currentUser) {
+        return new ModelAndView("student_registrations", "registrations", registrationService.getRepo().findAllBySid(currentUser.getUser().getLogin()));
+    }
+
     @RequestMapping("/register")
-    public ModelAndView getUsersPage(@ModelAttribute("currentUser") CurrentUser currentUser,
+    public String doRegister(@ModelAttribute("currentUser") CurrentUser currentUser,
                                      @RequestParam("tid") String tid) {
         LOGGER.debug("Registering student with "+ tid);
         Student student = userService.getStudentByLogin(currentUser.getUser().getLogin());
         Tutor tutor = userService.getTutorByLogin(tid);
-        registrationService.registerStudentWithTutor(student, tutor);
-        //userService.getAllTutors().get(0).getStudents().stream().filter(student1 -> student1.getSid().equals(currentUser.getUser().getLogin()))
-        return new ModelAndView("users", "tutors", userService.getAllTutors());
+        registrationService.registerStudentWithTutor(student, tutor, "pending");
+
+        return "redirect:/registrations";
     }
 }

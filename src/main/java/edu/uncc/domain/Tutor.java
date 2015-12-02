@@ -20,19 +20,15 @@ public class Tutor{
     private String specialization;
     private String courseTaught;
 
+    private Collection<Registration> registrations;
 
-
-    private Collection<Student> students;
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="Registration",
-            joinColumns={@JoinColumn(name="TID", referencedColumnName="TID")},
-            inverseJoinColumns={@JoinColumn(name="SID", referencedColumnName="SID")})
-    public Collection<Student> getStudents() {
-        return students;
+    @OneToMany(cascade=CascadeType.ALL, mappedBy = "tutor")
+    public Collection<Registration> getRegistrations() {
+        return registrations;
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void setRegistrations(List<Registration> registrations) {
+        this.registrations = registrations;
     }
 
     public Tutor(){}
