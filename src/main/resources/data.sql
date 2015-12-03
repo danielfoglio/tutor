@@ -26,31 +26,31 @@ Drop Table if exists user;
 
 
 
-# CREATE TABLES
-create table user (
+
+CREATE TABLE user (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	login varchar(10) not null ,
-	password_hash varchar(255) not null,
-	role varchar(50) not null)
-engine = InnoDb;
+	login VARCHAR(10) NOT NULL,
+	password_hash VARCHAR(255) NOT NULL,
+	role VARCHAR(50) NOT NULL);
 
-INSERT INTO user (login, password_hash, role)
-VALUES ('t101', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'TUTOR');
-INSERT INTO user (login, password_hash, role)
-VALUES ('t102', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'TUTOR');
-INSERT INTO user (login, password_hash, role)
-VALUES ('t103', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'TUTOR');
-INSERT INTO user (login, password_hash, role)
-VALUES ('t104', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'TUTOR');
+-- passwords for all users are currently:   password
+INSERT INTO user
+VALUES (1,'t101', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'TUTOR');
+INSERT INTO user
+VALUES (2,'t102', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'TUTOR');
+INSERT INTO user
+VALUES (3,'t103', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'TUTOR');
+INSERT INTO user
+VALUES (4,'t104', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'TUTOR');
 
-INSERT INTO user (login, password_hash, role)
-VALUES ('S101', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'USER');
-INSERT INTO user (login, password_hash, role)
-VALUES ('S102', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'USER');
-INSERT INTO user (login, password_hash, role)
-VALUES ('S103', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'USER');
-INSERT INTO user (login, password_hash, role)
-VALUES ('S104', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'USER');
+INSERT INTO user
+VALUES (5,'S101', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'USER');
+INSERT INTO user
+VALUES (6,'S102', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'USER');
+INSERT INTO user
+VALUES (7,'S103', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'USER');
+INSERT INTO user
+VALUES (8,'S104', '$2a$10$dHUKxYLEJq.pcx6b9mLM8OZWT8ZE7CYfsA9ZF0eYljGaWsp/9sUZe', 'USER');
 
 
 CREATE TABLE Tutor(
@@ -301,3 +301,4 @@ FOREIGN KEY(SID) REFERENCES Student(SID),
 FOREIGN KEY (discussionID) REFERENCES DiscussionForum_Administers(discussionID));
 
 INSERT INTO S_Access VALUES ('s101','ds102');
+
